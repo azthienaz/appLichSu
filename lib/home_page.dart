@@ -1,63 +1,83 @@
 import 'package:flutter/material.dart';
-import 'screens/login_page.dart';
-import 'screens/settings_page.dart';
+import 'screens/period_page.dart';
 
-class HomePage extends StatelessWidget {
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+class _HomePageState extends State<HomePage>{
+  int _screenIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey);
+  static const List<Widget> _widgetOptions = <Widget>[
+    PeriodPage(),
+    Text(
+      'Index 1: ThoiKy',
+      style: optionStyle
+    ),
+    Text(
+      'Index 2: GiaiThoai',
+      style: optionStyle
+    ),
+    Text(
+      'Index 3: BaoTang',
+      style: optionStyle
+    ),
+  ];
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _screenIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark ,
-    );
+    
     return
       Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color.fromARGB(255, 228, 160, 59), Colors.white])),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color.fromARGB(255, 228, 160, 59), Colors.white])
+        ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Text('Home Page'),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: SearchAnchor(
-              builder: (BuildContext context, SearchController controller)
-              {
-                return SearchBar(
-                  controller: controller,
-                  padding: const WidgetStatePropertyAll<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 16.0)),
-                  onTap: () {
-                    controller.openView();
-                  },
-                  onChanged: (_) {
-                    controller.openView();
-                  },
-                  leading: const Icon(Icons.search),
-             
-                );
-              },
-              suggestionsBuilder:
-              (BuildContext context, SearchController controller) {
-                return List<ListTile>.generate(5, (int index) {
-                  final String item = 'item $index';
-                  return ListTile(
-                    title: Text(item),
-                    onTap: () {
-                      setState(() {
-                        controller.closeView(item);
-                      });
-                    },
-                  );
-                });
-              }
+          body:  
+            _widgetOptions.elementAt(_screenIndex),
+            bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.public),
+                  label: 'Thời kỳ',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.description),
+                  label: 'Sự kiện',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.menu_book),
+                  label: 'Giai thoại',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.museum),
+                  label: 'Bảo tàng',
+                ),
+              ],
+              currentIndex: _screenIndex,
+              unselectedItemColor: Colors.grey,
+              unselectedLabelStyle: const TextStyle
+                (
+                  color: Colors.grey, 
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
+              selectedItemColor: const Color.fromARGB(255, 228, 160, 59),
+              onTap: _onItemTapped,
             ),
-          ),
         ),
       );
   }
