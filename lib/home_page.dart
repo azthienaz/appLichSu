@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/period_page.dart';
 import 'screens/event_page.dart';
-
+import 'screens/anecdote_page.dart';
+import 'screens/museum_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
@@ -9,19 +10,11 @@ class HomePage extends StatefulWidget {
 }
 class _HomePageState extends State<HomePage>{
   int _screenIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey);
   static const List<Widget> _widgetOptions = <Widget>[
     PeriodPage(),
     EventPage(),
-    Text(
-      'Index 2: GiaiThoai',
-      style: optionStyle
-    ),
-    Text(
-      'Index 3: BaoTang',
-      style: optionStyle
-    ),
+    AnecdotePage(),
+    MuseumPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -66,12 +59,16 @@ class _HomePageState extends State<HomePage>{
               ],
               currentIndex: _screenIndex,
               unselectedItemColor: Colors.grey,
-              unselectedLabelStyle: const TextStyle
-                (
-                  color: Colors.grey, 
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                ),
+              unselectedLabelStyle: const TextStyle(
+                color: Colors.grey, 
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
+              selectedLabelStyle: const TextStyle(
+                color: Color.fromARGB(255, 228, 160, 59), 
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
               selectedItemColor: const Color.fromARGB(255, 228, 160, 59),
               onTap: _onItemTapped,
             ),

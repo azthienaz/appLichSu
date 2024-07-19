@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ConstantEventPage extends StatefulWidget {
-  const ConstantEventPage({super.key});
+class ConstantAnecdotePage extends StatefulWidget {
+  const ConstantAnecdotePage({super.key});
   @override
-  _ConstantEventPageState createState() => _ConstantEventPageState();
+  _ConstantAnecdotePageState createState() => _ConstantAnecdotePageState();
 }
-class _ConstantEventPageState extends State<ConstantEventPage>{
+class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
   static var bookmarked = false;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _ConstantEventPageState extends State<ConstantEventPage>{
             children: [
               const SizedBox(width: 17,),
               const Text(
-                'Sự kiện lịch sử',
+                'Giai thoại lịch sử',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 17,
@@ -45,7 +45,7 @@ class _ConstantEventPageState extends State<ConstantEventPage>{
           ),
         ),
         body: const Center(
-          child: Text('This is the Constant Event Page'),
+          child: Text('This is the Constant Anecdote Page'),
         ),
       ),
     );
