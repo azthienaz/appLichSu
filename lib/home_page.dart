@@ -3,13 +3,14 @@ import 'screens/period_page.dart';
 import 'screens/event_page.dart';
 import 'screens/anecdote_page.dart';
 import 'screens/museum_page.dart';
+import 'constants/screen_index.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
   _HomePageState createState() => _HomePageState();
 }
 class _HomePageState extends State<HomePage>{
-  int _screenIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     PeriodPage(),
     EventPage(),
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage>{
 
   void _onItemTapped(int index) {
     setState(() {
-      _screenIndex = index;
+      ScreenIndex.screenIndex = index;
     });
   }
   @override
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage>{
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body:  
-            _widgetOptions.elementAt(_screenIndex),
+            _widgetOptions.elementAt(ScreenIndex.screenIndex),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage>{
                   label: 'Bảo tàng',
                 ),
               ],
-              currentIndex: _screenIndex,
+              currentIndex: ScreenIndex.screenIndex,
               unselectedItemColor: Colors.grey,
               unselectedLabelStyle: const TextStyle(
                 color: Colors.grey, 
