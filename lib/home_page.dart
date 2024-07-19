@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'screens/period_page.dart';
-
+import 'screens/event_page.dart';
+import 'screens/anecdote_page.dart';
+import 'screens/museum_page.dart';
+import 'constants/screen_index.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,28 +11,16 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 class _HomePageState extends State<HomePage>{
-  int _screenIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey);
   static const List<Widget> _widgetOptions = <Widget>[
     PeriodPage(),
-    Text(
-      'Index 1: ThoiKy',
-      style: optionStyle
-    ),
-    Text(
-      'Index 2: GiaiThoai',
-      style: optionStyle
-    ),
-    Text(
-      'Index 3: BaoTang',
-      style: optionStyle
-    ),
+    EventPage(),
+    AnecdotePage(),
+    MuseumPage(),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _screenIndex = index;
+      ScreenIndex.screenIndex = index;
     });
   }
   @override
@@ -46,7 +37,7 @@ class _HomePageState extends State<HomePage>{
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body:  
-            _widgetOptions.elementAt(_screenIndex),
+            _widgetOptions.elementAt(ScreenIndex.screenIndex),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
@@ -67,14 +58,18 @@ class _HomePageState extends State<HomePage>{
                   label: 'Bảo tàng',
                 ),
               ],
-              currentIndex: _screenIndex,
+              currentIndex: ScreenIndex.screenIndex,
               unselectedItemColor: Colors.grey,
-              unselectedLabelStyle: const TextStyle
-                (
-                  color: Colors.grey, 
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                ),
+              unselectedLabelStyle: const TextStyle(
+                color: Colors.grey, 
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
+              selectedLabelStyle: const TextStyle(
+                color: Color.fromARGB(255, 228, 160, 59), 
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+              ),
               selectedItemColor: const Color.fromARGB(255, 228, 160, 59),
               onTap: _onItemTapped,
             ),

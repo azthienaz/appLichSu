@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:applichsu/model/event_model.dart';
+import 'package:applichsu/model/museum_model.dart';
 
 
-class EventWidget extends StatelessWidget {
-  const EventWidget({
+class MuseumWidget extends StatelessWidget {
+  const MuseumWidget({
     super.key,
-    required this.eventModel,
-    required this.onSelectEventModel,
+    required this.museumModel,
+    required this.onSelectMuseumModel,
   });
 
-  final EventModel eventModel;
-  final void Function() onSelectEventModel;
+  final MuseumModel museumModel;
+  final void Function() onSelectMuseumModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class EventWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectEventModel,
+          onTap: onSelectMuseumModel,
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(
@@ -38,26 +38,15 @@ class EventWidget extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Center(child: Image(image: eventModel.image, width: 175)),
+                Center(child: Image(image: museumModel.image, width: 170)),
                 const SizedBox(height: 5),
                 Text(
-                  eventModel.title,
+                  museumModel.title,
                   textAlign: TextAlign.left,
                   maxLines: 2,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  eventModel.time,
-                  textAlign: TextAlign.left,
-                  maxLines: 2,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12,
                     color: Colors.black,
                   ),
                 ),

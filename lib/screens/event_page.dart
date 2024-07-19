@@ -1,23 +1,22 @@
 import 'package:applichsu/screens/contact_page.dart';
-import 'package:applichsu/screens/period_detail.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
-import '../constant_screen/event_page.dart';
+import '../widgets/event.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:applichsu/data/period_data.dart';
-import 'package:applichsu/widgets/period.dart';
+import 'package:applichsu/data/event_data.dart';
+import 'package:applichsu/constant_screen/event_page.dart';
 
-class PeriodPage extends StatefulWidget {
-  const PeriodPage({super.key});
+class EventPage extends StatefulWidget {
+  const EventPage({super.key});
   @override
-  _PeriodPageState createState() => _PeriodPageState();
+  _EventPageState createState() => _EventPageState();
 }
-class _PeriodPageState extends State<PeriodPage>{
+class _EventPageState extends State<EventPage>{
 
-  void onSelectPeriodModel(){
+  void onSelectEventModel(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const PeriodDetailPage()),
+      MaterialPageRoute(builder: (context) => const ConstantEventPage()),
     );
   }
 
@@ -31,6 +30,7 @@ class _PeriodPageState extends State<PeriodPage>{
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [Color.fromARGB(255, 221, 156, 58), Color.fromARGB(255, 233, 226, 226)])),
+        
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
@@ -66,7 +66,7 @@ class _PeriodPageState extends State<PeriodPage>{
                               controller.openView();
                             },
                             leading: const Icon(Icons.search, color: Colors.white,),
-                       
+                        
                           );
                         },
                         suggestionsBuilder:
@@ -108,7 +108,8 @@ class _PeriodPageState extends State<PeriodPage>{
                     // ),
                   ],
                 ),
-                Flexible(
+                
+                  Flexible(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -186,50 +187,33 @@ class _PeriodPageState extends State<PeriodPage>{
                         ),
                       ),
                       Expanded(
-                        child: GridView(
-                          padding: const EdgeInsets.all(20),
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 0.85,
-                            crossAxisSpacing: 30,
-                            mainAxisSpacing: 30,
-                          ),
-                          children: [
-                            for(final periodModel in periodData)
-                              PeriodWidget(
-                                periodModel: periodModel,
-                                onSelectPeriodModel: onSelectPeriodModel,
-                              ),
-                          ],
+                      child: GridView(
+                        padding: const EdgeInsets.all(20),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1,
+                          childAspectRatio: 1.71,
+                          crossAxisSpacing: 30,
+                          mainAxisSpacing: 30,
                         ),
-                      ),
-                     
-                       Padding(
-                         padding: const EdgeInsets.only(left:300),
-                         child: Container(
-                            color: Colors.white,
-                            alignment: Alignment.bottomRight,
-                            child: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const ContactPage()),
-                                  );
-                              },
-                              icon: const Icon(Icons.email, color: Color.fromARGB(255, 204, 123, 2),),
+                        children: [
+                          for(final eventModel in eventData)
+                            EventWidget(
+                              eventModel: eventModel,
+                              onSelectEventModel: onSelectEventModel,
                             ),
-                          ),
-                       ),
-                      
+                        ],
+                      ),
+                    ),
+                
                     ],
                   ),
                 ),
-                
               ],
             ),
-
+        
           ),
         ),
+        
       );
   }
 }
