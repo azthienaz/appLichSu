@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/period_page.dart';
-
+import 'screens/event_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,10 +13,7 @@ class _HomePageState extends State<HomePage>{
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey);
   static const List<Widget> _widgetOptions = <Widget>[
     PeriodPage(),
-    Text(
-      'Index 1: ThoiKy',
-      style: optionStyle
-    ),
+    EventPage(),
     Text(
       'Index 2: GiaiThoai',
       style: optionStyle

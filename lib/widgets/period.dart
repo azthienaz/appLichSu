@@ -20,12 +20,12 @@ class PeriodWidget extends StatelessWidget {
         child: InkWell(
           onTap: onSelectPeriodModel,
           splashColor: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(2),
+          borderRadius: BorderRadius.circular(4),
           child: Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(1),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(2),
+              borderRadius: BorderRadius.circular(4),
               gradient: const LinearGradient(
                 colors: [
                   Colors.grey,
@@ -38,7 +38,7 @@ class PeriodWidget extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image(image: periodModel.image, height: 100),
+                Center(child: Image(image: periodModel.image, height: 100)),
                 const SizedBox(height: 5),
                 Text(
                   periodModel.period,
