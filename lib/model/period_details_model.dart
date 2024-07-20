@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-class PeriodModel {
-  const PeriodModel({
-    required this.index,
+class PeriodDetailsModel {
+  const PeriodDetailsModel({
     required this.image,
-    required this.period,
+    required this.title,
     required this.time,
   });
-  final int index;
   final AssetImage image;
-  final String period;
+  final String title;
   final String time;
 }

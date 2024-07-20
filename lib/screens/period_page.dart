@@ -1,11 +1,15 @@
 import 'package:applichsu/screens/contact_page.dart';
-import 'package:applichsu/screens/period_detail.dart';
+import 'package:applichsu/screens/period_details1.dart';
+import 'package:applichsu/screens/period_details2.dart';
+import 'package:applichsu/screens/period_details3.dart';
+import 'package:applichsu/screens/period_details4.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
 import '../constant_screen/event_page.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:applichsu/data/period_data.dart';
 import 'package:applichsu/widgets/period.dart';
+import 'package:applichsu/constants/period_details_index.dart';
 
 class PeriodPage extends StatefulWidget {
   const PeriodPage({super.key});
@@ -13,13 +17,6 @@ class PeriodPage extends StatefulWidget {
   _PeriodPageState createState() => _PeriodPageState();
 }
 class _PeriodPageState extends State<PeriodPage>{
-
-  void onSelectPeriodModel(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const PeriodDetailPage()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +44,14 @@ class _PeriodPageState extends State<PeriodPage>{
                         {
                           return SearchBar(
                             hintText: "Tìm kiếm",
+                            textStyle: const WidgetStatePropertyAll(
+                              TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 15,
+                              ),
+                            ),
                             hintStyle: const WidgetStatePropertyAll(
                               TextStyle(
                                 color: Colors.white,
@@ -198,7 +203,35 @@ class _PeriodPageState extends State<PeriodPage>{
                             for(final periodModel in periodData)
                               PeriodWidget(
                                 periodModel: periodModel,
-                                onSelectPeriodModel: onSelectPeriodModel,
+                                onSelectPeriodModel: (){
+                                  setState((){
+                                    PeriodDetailsIndex.periodDetailsIndex = periodModel.index;
+                                    if(PeriodDetailsIndex.periodDetailsIndex == 1){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const PeriodDetails1Page()),
+                                      );
+                                    }
+                                    else if(PeriodDetailsIndex.periodDetailsIndex == 2){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const PeriodDetails2Page()),
+                                      );
+                                    }
+                                    else if(PeriodDetailsIndex.periodDetailsIndex == 3){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const PeriodDetails3Page()),
+                                      );
+                                    }
+                                    else{
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const PeriodDetails4Page()),
+                                      );
+                                    }
+                                  });
+                                }
                               ),
                           ],
                         ),
