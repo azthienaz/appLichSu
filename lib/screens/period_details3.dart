@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
-import 'package:applichsu/screens/contact_page.dart';
+import 'package:applichsu/constant_screen/anecdote_page.dart';
+import 'package:applichsu/constant_screen/museum_page.dart';
 import 'package:applichsu/constant_screen/event_page.dart';
 import 'package:applichsu/data/period_details3_data.dart';
 import 'package:applichsu/widgets/period_details3.dart';
-
+import 'package:applichsu/data/search_data.dart';
+import 'package:applichsu/data/search_datas.dart';
+import 'package:applichsu/screens/search_page.dart';
 class PeriodDetails3Page extends StatefulWidget {
   const PeriodDetails3Page({super.key});
   @override
@@ -93,6 +96,17 @@ class _PeriodDetails3PageState extends State<PeriodDetails3Page>{
                       onChanged: (_) {
                         controller.openView();
                       },
+                      onSubmitted: (String text) {
+                        for(final data in searchDatas){
+                          if(text == data.title){
+                            searchData.add(data);
+                          }
+                        }
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SearchPage()),
+                        );
+                      },
                       leading: const Icon(Icons.search, color: Colors.white,),
                   
                     );
@@ -100,17 +114,40 @@ class _PeriodDetails3PageState extends State<PeriodDetails3Page>{
                   suggestionsBuilder:
                   (BuildContext context, SearchController controller) {
                     return List<ListTile>.generate(3, (int index) {
-                      final String item = 'hentaiz.icu #$index';
+                      final String item;
+                      if(index == 1){
+                        item = "Cuộc khởi nghĩa của Hai Bà Trưng giành thắng lợi";
+                      }
+                      else if(index == 2){
+                        item = "Đinh Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ";
+                      }
+                      else{
+                        item = "Ấn vàng Sắc mệnh chi bảo";
+                      }
                       return ListTile(
                         title: Text(item, style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           setState(() {
                             controller.closeView(item);
                           });
-                          Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const ContactPage()),
+                          if(index == 1){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ConstantEventPage()),
                             );
+                          }
+                          else if(index == 2){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                            );
+                          }
+                          else{
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                            );
+                          }
                         },
                       );
                     });

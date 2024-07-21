@@ -47,6 +47,7 @@ Download the Android version of this app through the following link:
 | 18/07/2024   | Update Main: Period UI | Update the Period UI                                |
 | 19/07/2024   | Update Main and Constants Event, Anecdote, Museum Page UI | Update more basic UI|
 | 20/07/2024   | Fix Navigate Page, Update 4 Period Details Page + Constants Period Details Page + Contact Page | Update more basic UI |
+| 21/07/2024   | Update Bookmark UI, Search Suggestions | Update more basic UI and Search Suggestions |
 
 ##### Future Work
 - [ ] Update app structure, optimize and clean code.
