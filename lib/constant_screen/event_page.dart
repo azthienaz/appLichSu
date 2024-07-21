@@ -2,6 +2,8 @@ import 'package:applichsu/constant_screen/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
+import 'package:applichsu/data/bookmark_data.dart';
+import 'package:applichsu/model/bookmark_model.dart';
 
 class ConstantEventPage extends StatefulWidget {
   const ConstantEventPage({super.key});
@@ -10,6 +12,11 @@ class ConstantEventPage extends StatefulWidget {
 }
 class _ConstantEventPageState extends State<ConstantEventPage>{
   int _screenIndex = 1;
+  static var bookmarked = false;
+  var bm = const BookmarkModel(
+    image: AssetImage('assets/images/event1.png'),
+    title: "Cuộc khởi nghĩa của Hai Bà Trưng giành thắng lợi",
+  );
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
@@ -19,7 +26,20 @@ class _ConstantEventPageState extends State<ConstantEventPage>{
       );
     });
   }
-  static var bookmarked = false;
+
+  void _bookmarked(BookmarkModel bm){
+    setState(() {
+      bookmarked = !bookmarked;
+    });
+    final exited = bookmarkData.contains(bm);
+    if(exited){
+      bookmarkData.remove(bm);
+    }
+    else{
+      bookmarkData.add(bm);
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,37 +52,31 @@ class _ConstantEventPageState extends State<ConstantEventPage>{
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Sự kiện lịch sử',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(width: 25),
-              IconButton(
-                alignment: Alignment.topRight,
-                onPressed: () {
-                  setState(() {
-                    bookmarked = !bookmarked;
-                  });
-                },
-                icon: bookmarked ? 
-                  const Icon(
-                    Icons.favorite, color: Colors.red,
-                  )
-                  : 
-                  const Icon(
-                    Icons.favorite_border, color: Colors.black,
-                  ),
-              ),
-            ],
+          title: const Text(
+            'Sự kiện lịch sử',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
           ),
+          actions: [
+            IconButton(
+              alignment: Alignment.topRight,
+              onPressed: () {
+                _bookmarked(bm);
+              },
+              icon: bookmarked ? 
+                const Icon(
+                  Icons.favorite, color: Colors.red,
+                )
+                : 
+                const Icon(
+                  Icons.favorite_border, color: Colors.black,
+                ),
+            ),
+          ],
         ),
         body: 
           Column(

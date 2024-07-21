@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
+import 'package:applichsu/data/bookmark_data.dart';
+import 'package:applichsu/model/bookmark_model.dart';
 
 class ConstantMuseumPage extends StatefulWidget {
   const ConstantMuseumPage({super.key});
@@ -9,6 +11,13 @@ class ConstantMuseumPage extends StatefulWidget {
 }
 class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
   int _screenIndex = 3;
+  static var bookmarked = false;
+
+  var bm = const BookmarkModel(
+    image: AssetImage('assets/images/museum6.png'),
+    title: "Ấn vàng Sắc mệnh chi bảo",
+  );
+
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
@@ -18,7 +27,20 @@ class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
       );
     });
   }
-  static var bookmarked = false;
+
+  void _bookmarked(BookmarkModel bm){
+    setState(() {
+      bookmarked = !bookmarked;
+    });
+    final exited = bookmarkData.contains(bm);
+    if(exited){
+      bookmarkData.remove(bm);
+    }
+    else{
+      bookmarkData.add(bm);
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,37 +53,31 @@ class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Bảo tàng lịch sử',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(width: 25),
-              IconButton(
-                alignment: Alignment.topRight,
-                onPressed: () {
-                  setState(() {
-                    bookmarked = !bookmarked;
-                  });
-                },
-                icon: bookmarked ? 
-                  const Icon(
-                    Icons.favorite, color: Colors.red,
-                  )
-                  : 
-                  const Icon(
-                    Icons.favorite_border, color: Colors.black,
-                  ),
-              ),
-            ],
+          title: const Text(
+            'Bảo tàng lịch sử',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
           ),
+          actions: [
+            IconButton(
+              alignment: Alignment.topRight,
+              onPressed: () {
+                _bookmarked(bm);
+              },
+              icon: bookmarked ? 
+                const Icon(
+                  Icons.favorite, color: Colors.red,
+                )
+                : 
+                const Icon(
+                  Icons.favorite_border, color: Colors.black,
+                ),
+            ),
+          ],
         ),
         body: 
           const Column(

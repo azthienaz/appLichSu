@@ -32,7 +32,7 @@ class _ContactPageState extends State<ContactPage>{
             child: Text(
               'Liên hệ tác giả',
               style: TextStyle(
-                fontSize: 17,
+                fontSize: 21,
                 fontWeight: FontWeight.w700,
                 color: Colors.black,
               ),

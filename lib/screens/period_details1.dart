@@ -50,7 +50,7 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
               'Thời kỳ lịch sử',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 21,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
               ),

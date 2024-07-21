@@ -1,7 +1,9 @@
 import 'package:applichsu/constant_screen/video_page.dart';
+import 'package:applichsu/model/bookmark_model.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
+import 'package:applichsu/data/bookmark_data.dart';
 
 class ConstantAnecdotePage extends StatefulWidget {
   const ConstantAnecdotePage({super.key});
@@ -10,6 +12,11 @@ class ConstantAnecdotePage extends StatefulWidget {
 }
 class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
   int _screenIndex = 2;
+  var bm = const BookmarkModel(
+    image: AssetImage('assets/images/anecdote2.png'),
+    title: "Đinh Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ",
+  );
+  static var bookmarked = false;
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
@@ -19,7 +26,20 @@ class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
       );
     });
   }
-  static var bookmarked = false;
+  void _bookmarked(BookmarkModel bm){
+    setState(() {
+      bookmarked = !bookmarked;
+    });
+    final exited = bookmarkData.contains(bm);
+    if(exited){
+      bookmarkData.remove(bm);
+    }
+    else{
+      bookmarkData.add(bm);
+    }
+  }
+
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,37 +52,31 @@ class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Giai thoại lịch sử',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(width: 25),
-              IconButton(
-                alignment: Alignment.topRight,
-                onPressed: () {
-                  setState(() {
-                    bookmarked = !bookmarked;
-                  });
-                },
-                icon: bookmarked ? 
-                  const Icon(
-                    Icons.favorite, color: Colors.red,
-                  )
-                  : 
-                  const Icon(
-                    Icons.favorite_border, color: Colors.black,
-                  ),
-              ),
-            ],
+          title: const Text(
+            'Giai thoại lịch sử',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
           ),
+          actions: [
+            IconButton(
+              alignment: Alignment.topRight,
+              onPressed: () {
+                _bookmarked(bm);
+              },
+              icon: bookmarked ? 
+                const Icon(
+                  Icons.favorite, color: Colors.red,
+                )
+                : 
+                const Icon(
+                  Icons.favorite_border, color: Colors.black,
+                ),
+            ),
+          ],
         ),
         body: 
           

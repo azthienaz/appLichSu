@@ -49,7 +49,7 @@ class _PeriodDetails3PageState extends State<PeriodDetails3Page>{
               'Thời kỳ lịch sử',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 21,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
               ),
