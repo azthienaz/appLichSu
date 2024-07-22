@@ -52,15 +52,12 @@ class _SearchPageState extends State<SearchPage>{
                 Navigator.of(context).pop();
               },
             ),
-            title: const Padding(
-              padding: EdgeInsets.only(left: 28.0),
-              child: Text(
-                'Trang kết quả tìm kiếm',
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black,
-                ),
+            title: const Text(
+              'Trang kết quả tìm kiếm',
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
               ),
             ),
           ),

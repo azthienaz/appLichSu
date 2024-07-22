@@ -22,13 +22,17 @@ This is an app about Vietnamese history, made by a team of 2 people:
 
 ## Screenshots
 
-| Waiter                               | | Period                                    |
-|---------------------------------     | | ----------------------------------------  |
-| ![Waiter UI](screenshots/waiter.png) | | ![Period UI](screenshots/period_page.png) | 
+| Waiter                               | ............ | Period                                    |
+|---------------------------------     | ----------------- | ----------------------------------------  |
+| ![Waiter UI](screenshots/waiter.png) | ............... | ![Period UI](screenshots/period_page.png) | 
 
-| Event                                   | | Anecdote                                     |
-|-------------------------                | |----------------------------------------      |
-| ![Event UI](screenshots/event_page.png) | | ![Anecdote UI](screenshots/anecdote_page.png)|
+
+
+| Event                                   | .............. | Anecdote                                     |
+|-------------------------                | --------------- |----------------------------------------      |
+| ![Event UI](screenshots/event_page.png) | .............. | ![Anecdote UI](screenshots/anecdote_page.png)|
+
+
 
 |Museum                                     |
 |---------------------------------------    |
@@ -48,6 +52,7 @@ Download the Android version of this app through the following link:
 | 19/07/2024   | Update Main and Constants Event, Anecdote, Museum Page UI | Update more basic UI|
 | 20/07/2024   | Fix Navigate Page, Update 4 Period Details Page + Constants Period Details Page + Contact Page | Update more basic UI |
 | 21/07/2024   | Update Bookmark UI, Search Suggestions | Update more basic UI and Search Suggestions |
+| 22/07/2024   | Update Search Page, Fix SearchBar UI   | Update more basic UI                |
 
 ##### Future Work
 - [ ] Update app structure, optimize and clean code.

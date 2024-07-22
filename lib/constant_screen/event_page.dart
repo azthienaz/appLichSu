@@ -4,6 +4,7 @@ import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/bookmark_data.dart';
 import 'package:applichsu/model/bookmark_model.dart';
+import 'package:applichsu/data/search_data.dart';
 
 class ConstantEventPage extends StatefulWidget {
   const ConstantEventPage({super.key});
@@ -20,6 +21,7 @@ class _ConstantEventPageState extends State<ConstantEventPage>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),

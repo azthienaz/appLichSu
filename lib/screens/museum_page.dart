@@ -15,6 +15,23 @@ class MuseumPage extends StatefulWidget {
 }
 class _MuseumPageState extends State<MuseumPage>{
 
+  late SearchController _controller;
+  late TextEditingController textController;
+
+  @override
+  void initState(){
+    _controller = SearchController();
+    textController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose(){
+    _controller.dispose();
+    textController.dispose();
+    super.dispose();
+    
+  }
   void onSelectMuseumModel(){
     Navigator.push(
       context,
@@ -44,8 +61,50 @@ class _MuseumPageState extends State<MuseumPage>{
                   children: [
                     Flexible(
                       child: SearchAnchor(
+                        searchController: _controller,
+                        headerTextStyle: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 15,
+                        ),
+                        
+                        viewLeading: IconButton(
+                          icon: const Icon(Icons.arrow_back, color: Colors.white),
+                          onPressed: (){
+                            _controller.clear();
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        viewTrailing: {
+                          IconButton(
+                            icon: const Icon(Icons.clear, color: Colors.white),
+                            onPressed: (){
+                              setState(() {
+                                if(_controller.value.text.isNotEmpty){
+                                  _controller.clear();
+                                }
+                                else{
+                                  Navigator.of(context).pop();
+                                }
+                              });
+                            },
+                          ),
+                        },
                         viewBackgroundColor: Colors.black,
-                        builder: (BuildContext context, SearchController controller)
+                        viewOnSubmitted: (_) {
+                          for(final data in searchDatas){
+                            if(data.title.contains(_controller.value.text)){
+                              searchData.add(data);
+                            }
+                          } 
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SearchPage()),
+                          );
+                          
+                        },
+                        builder: (BuildContext context, _controller)
                         {
                           return SearchBar(
                             hintText: "Tìm kiếm",
@@ -58,32 +117,31 @@ class _MuseumPageState extends State<MuseumPage>{
                               ),
                             ),
                             backgroundColor: const WidgetStatePropertyAll(Colors.black),
-                            controller: controller,
                             padding: const WidgetStatePropertyAll<EdgeInsets>(
-                                EdgeInsets.symmetric(horizontal: 16.0)),
+                              EdgeInsets.symmetric(horizontal: 16.0)
+                            ),
+                            textStyle: const WidgetStatePropertyAll(
+                              TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 15,
+                              ),
+                            ),
+                           
                             onTap: () {
-                              controller.openView();
+                              _controller.openView();
                             },
                             onChanged: (_) {
-                              controller.openView();
+                              _controller.openView();
                             },
-                            onSubmitted: (String text) {
-                              for(final data in searchDatas){
-                                if(text == data.title){
-                                  searchData.add(data);
-                                }
-                              }
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const SearchPage()),
-                              );
-                            },
+                            
                             leading: const Icon(Icons.search, color: Colors.white,),
-                        
+                       
                           );
                         },
                         suggestionsBuilder:
-                        (BuildContext context, SearchController controller) {
+                        (BuildContext context, _controller) {
                           return List<ListTile>.generate(3, (int index) {
                             final String item;
                             if(index == 1){
@@ -99,7 +157,7 @@ class _MuseumPageState extends State<MuseumPage>{
                               title: Text(item, style: const TextStyle(color: Colors.white)),
                               onTap: () {
                                 setState(() {
-                                  controller.closeView(item);
+                                  _controller.closeView(item);
                                 });
                                 if(index == 1){
                                   Navigator.push(
