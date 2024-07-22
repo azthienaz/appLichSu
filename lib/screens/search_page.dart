@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:applichsu/data/bookmark_data.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-import 'package:applichsu/widgets/bookmark.dart';
+import 'package:applichsu/data/search_data.dart';
+import 'package:applichsu/constant_screen/event_page.dart';
+import 'package:applichsu/widgets/search.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/home_page.dart';
 
-class BookmarkPage extends StatefulWidget {
-  const BookmarkPage({super.key});
+class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
   @override
-  _BookmarkPageState createState() => _BookmarkPageState();
+  _SearchPageState createState() => _SearchPageState();
 }
-class _BookmarkPageState extends State<BookmarkPage>{
+class _SearchPageState extends State<SearchPage>{
 
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
@@ -22,10 +23,10 @@ class _BookmarkPageState extends State<BookmarkPage>{
     });
   }
 
-  void onSelectBookmarkModel(){
+  void onSelectSearchModel(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+      MaterialPageRoute(builder: (context) => const ConstantEventPage()),
     );
   }
 
@@ -44,21 +45,25 @@ class _BookmarkPageState extends State<BookmarkPage>{
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: const Padding(
-              padding: EdgeInsets.only(left: 28.0),
-              child: Text(
-                'Bài đánh dấu',
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black,
-                ),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: (){
+                searchData.clear();
+                Navigator.of(context).pop();
+              },
+            ),
+            title: const Text(
+              'Trang kết quả tìm kiếm',
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
               ),
             ),
           ),
           body: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: bookmarkData.isNotEmpty ?
+            child: searchData.isNotEmpty ?
               Column(
                 children: [
                     Expanded(
@@ -71,10 +76,10 @@ class _BookmarkPageState extends State<BookmarkPage>{
                           mainAxisSpacing: 30,
                         ),
                         children: [
-                          for(final bookmarkModel in bookmarkData)
-                            BookmarkWidget(
-                              bookmarkModel: bookmarkModel,
-                              onSelectBookmarkModel: onSelectBookmarkModel,
+                          for(final searchModel in searchData)
+                            SearchWidget(
+                              searchModel: searchModel,
+                              onSelectSearchModel: onSelectSearchModel,
                             ),
                         ],
                       ),
@@ -84,7 +89,7 @@ class _BookmarkPageState extends State<BookmarkPage>{
             :
               const Center(
                 child: Text(
-                  '--- Empty ---',
+                  '--- No exist article ---',
                   style: TextStyle(
                     color: Color.fromARGB(255, 61, 60, 60),
                     fontSize: 22,

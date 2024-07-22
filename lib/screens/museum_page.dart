@@ -1,10 +1,13 @@
-import 'package:applichsu/screens/contact_page.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
 import '../widgets/museum.dart';
 import 'package:applichsu/data/museum_data.dart';
 import 'package:applichsu/constant_screen/museum_page.dart';
-
+import 'package:applichsu/constant_screen/event_page.dart';
+import 'package:applichsu/constant_screen/anecdote_page.dart';
+import 'package:applichsu/data/search_data.dart';
+import 'package:applichsu/data/search_datas.dart';
+import 'package:applichsu/screens/search_page.dart';
 class MuseumPage extends StatefulWidget {
   const MuseumPage({super.key});
   @override
@@ -12,6 +15,23 @@ class MuseumPage extends StatefulWidget {
 }
 class _MuseumPageState extends State<MuseumPage>{
 
+  late SearchController _controller;
+  late TextEditingController textController;
+
+  @override
+  void initState(){
+    _controller = SearchController();
+    textController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose(){
+    _controller.dispose();
+    textController.dispose();
+    super.dispose();
+    
+  }
   void onSelectMuseumModel(){
     Navigator.push(
       context,
@@ -41,8 +61,50 @@ class _MuseumPageState extends State<MuseumPage>{
                   children: [
                     Flexible(
                       child: SearchAnchor(
+                        searchController: _controller,
+                        headerTextStyle: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 15,
+                        ),
+                        
+                        viewLeading: IconButton(
+                          icon: const Icon(Icons.arrow_back, color: Colors.white),
+                          onPressed: (){
+                            _controller.clear();
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        viewTrailing: {
+                          IconButton(
+                            icon: const Icon(Icons.clear, color: Colors.white),
+                            onPressed: (){
+                              setState(() {
+                                if(_controller.value.text.isNotEmpty){
+                                  _controller.clear();
+                                }
+                                else{
+                                  Navigator.of(context).pop();
+                                }
+                              });
+                            },
+                          ),
+                        },
                         viewBackgroundColor: Colors.black,
-                        builder: (BuildContext context, SearchController controller)
+                        viewOnSubmitted: (_) {
+                          for(final data in searchDatas){
+                            if(data.title.contains(_controller.value.text)){
+                              searchData.add(data);
+                            }
+                          } 
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SearchPage()),
+                          );
+                          
+                        },
+                        builder: (BuildContext context, _controller)
                         {
                           return SearchBar(
                             hintText: "Tìm kiếm",
@@ -55,33 +117,66 @@ class _MuseumPageState extends State<MuseumPage>{
                               ),
                             ),
                             backgroundColor: const WidgetStatePropertyAll(Colors.black),
-                            controller: controller,
                             padding: const WidgetStatePropertyAll<EdgeInsets>(
-                                EdgeInsets.symmetric(horizontal: 16.0)),
+                              EdgeInsets.symmetric(horizontal: 16.0)
+                            ),
+                            textStyle: const WidgetStatePropertyAll(
+                              TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 15,
+                              ),
+                            ),
+                           
                             onTap: () {
-                              controller.openView();
+                              _controller.openView();
                             },
                             onChanged: (_) {
-                              controller.openView();
+                              _controller.openView();
                             },
+                            
                             leading: const Icon(Icons.search, color: Colors.white,),
-                        
+                       
                           );
                         },
                         suggestionsBuilder:
-                        (BuildContext context, SearchController controller) {
+                        (BuildContext context, _controller) {
                           return List<ListTile>.generate(3, (int index) {
-                            final String item = 'hentaiz.icu #$index';
+                            final String item;
+                            if(index == 1){
+                              item = "Cuộc khởi nghĩa của Hai Bà Trưng giành thắng lợi";
+                            }
+                            else if(index == 2){
+                              item = "Đinh Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ";
+                            }
+                            else{
+                              item = "Ấn vàng Sắc mệnh chi bảo";
+                            }
                             return ListTile(
                               title: Text(item, style: const TextStyle(color: Colors.white)),
                               onTap: () {
                                 setState(() {
-                                  controller.closeView(item);
+                                  _controller.closeView(item);
                                 });
-                                Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const ContactPage()),
+                                if(index == 1){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const ConstantEventPage()),
                                   );
+                                }
+                                else if(index == 2){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                                  );
+                                }
+                                else{
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                                  );
+                                }
                               },
                             );
                           });
