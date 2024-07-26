@@ -15,6 +15,7 @@ class _EventDetails1PageState extends State<EventDetails1Page>{
   int _screenIndex = 1;
   static var bookmarked = false;
   var bm = const BookmarkModel(
+    index: 11,
     image: AssetImage('assets/images/event1.png'),
     title: "Cuộc khởi nghĩa của Hai Bà Trưng giành thắng lợi",
   );

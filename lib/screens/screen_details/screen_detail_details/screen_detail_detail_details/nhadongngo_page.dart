@@ -1,3 +1,4 @@
+import 'package:applichsu/data/search_data.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
@@ -14,6 +15,7 @@ class _NhaDongNgoPageState extends State<NhaDongNgoPage>{
   static var bookmarked = false;
 
   var bm = const BookmarkModel(
+    index: 36,
     image: AssetImage('assets/images/nhadongngo.png'),
     title: "Nhà Đông Ngô",
   );
@@ -21,6 +23,7 @@ class _NhaDongNgoPageState extends State<NhaDongNgoPage>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),

@@ -10,7 +10,7 @@ class SearchWidget extends StatelessWidget {
   });
 
   final SearchModel searchModel;
-  final void Function() onSelectSearchModel;
+  final void Function(int index) onSelectSearchModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class SearchWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectSearchModel,
+          onTap: (){
+            onSelectSearchModel(searchModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

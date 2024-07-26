@@ -1,4 +1,5 @@
 import 'package:applichsu/constant_screen/video_page.dart';
+import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/model/bookmark_model.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
@@ -13,6 +14,7 @@ class AnecdoteDetails1Page extends StatefulWidget {
 class _AnecdoteDetails1PageState extends State<AnecdoteDetails1Page>{
   int _screenIndex = 2;
   var bm = const BookmarkModel(
+    index: 7,
     image: AssetImage('assets/images/anecdote1.png'),
     title: "Giai thoại Mỵ Châu - Trọng Thủy",
   );
@@ -20,6 +22,7 @@ class _AnecdoteDetails1PageState extends State<AnecdoteDetails1Page>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),

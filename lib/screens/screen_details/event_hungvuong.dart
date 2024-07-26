@@ -15,6 +15,7 @@ class _EventDetailsHVPageState extends State<EventDetailsHVPage>{
   int _screenIndex = 1;
   static var bookmarked = false;
   var bm = const BookmarkModel(
+    index: 10,
     image: AssetImage('assets/images/hungvuong.png'),
     title: "Giỗ Tổ Hùng Vương",
   );

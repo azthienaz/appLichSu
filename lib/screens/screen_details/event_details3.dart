@@ -15,6 +15,7 @@ class _EventDetails3PageState extends State<EventDetails3Page>{
   int _screenIndex = 1;
   static var bookmarked = false;
   var bm = const BookmarkModel(
+    index: 13,
     image: AssetImage('assets/images/event3.png'),
     title: "Triệu Quang Phục tiếp tục kháng chiến chống quân Lương",
   );

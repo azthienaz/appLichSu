@@ -10,7 +10,7 @@ class BookmarkWidget extends StatelessWidget {
   });
 
   final BookmarkModel bookmarkModel;
-  final void Function() onSelectBookmarkModel;
+  final void Function(int index) onSelectBookmarkModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class BookmarkWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectBookmarkModel,
+          onTap: (){
+            onSelectBookmarkModel(bookmarkModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

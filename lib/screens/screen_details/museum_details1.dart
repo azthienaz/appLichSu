@@ -3,6 +3,7 @@ import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/bookmark_data.dart';
 import 'package:applichsu/model/bookmark_model.dart';
+import 'package:applichsu/data/search_data.dart';
 
 class MuseumDetails1Page extends StatefulWidget {
   const MuseumDetails1Page({super.key});
@@ -14,6 +15,7 @@ class _MuseumDetails1PageState extends State<MuseumDetails1Page>{
   static var bookmarked = false;
 
   var bm = const BookmarkModel(
+    index: 1,
     image: AssetImage('assets/images/museum1.png'),
     title: "Trống đồng Cảnh Thịnh",
   );
@@ -21,6 +23,7 @@ class _MuseumDetails1PageState extends State<MuseumDetails1Page>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),

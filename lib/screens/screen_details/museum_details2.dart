@@ -1,3 +1,4 @@
+import 'package:applichsu/data/search_data.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
@@ -14,6 +15,7 @@ class _MuseumDetails2PageState extends State<MuseumDetails2Page>{
   static var bookmarked = false;
 
   var bm = const BookmarkModel(
+    index:2,
     image: AssetImage('assets/images/museum2.png'),
     title: "Đèn cổ hình người quỳ",
   );
@@ -21,6 +23,7 @@ class _MuseumDetails2PageState extends State<MuseumDetails2Page>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),

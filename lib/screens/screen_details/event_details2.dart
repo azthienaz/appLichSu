@@ -15,6 +15,7 @@ class _EventDetails2PageState extends State<EventDetails2Page>{
   int _screenIndex = 1;
   static var bookmarked = false;
   var bm = const BookmarkModel(
+    index: 12,
     image: AssetImage('assets/images/event2.png'),
     title: "Cuộc khởi nghĩa của Lý Bí (Lý Nam Đế) thắng lợi",
   );

@@ -9,6 +9,8 @@ import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
+import 'package:applichsu/data/bookmark_data.dart';
+import 'package:applichsu/model/bookmark_model.dart';
 
 class DuongDinhNghePage extends StatefulWidget {
   const DuongDinhNghePage({super.key});
@@ -18,8 +20,14 @@ class DuongDinhNghePage extends StatefulWidget {
 class _DuongDinhNghePageState extends State<DuongDinhNghePage>{
   int _screenIndex = 0;
   bool shorten = true;
+  static var bookmarked = false;
   late SearchController _controller;
   late TextEditingController textController;
+  var bm = const BookmarkModel(
+    index: 18,
+    image: AssetImage('assets/images/duongdinhnghe.png'),
+    title: "Dương Đình Nghệ đánh đuổi Nam Hán",
+  );
 
   @override
   void initState(){
@@ -40,11 +48,25 @@ class _DuongDinhNghePageState extends State<DuongDinhNghePage>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
       );
     });
+  }
+
+  void _bookmarked(BookmarkModel bm){
+    setState(() {
+      bookmarked = !bookmarked;
+    });
+    final exited = bookmarkData.contains(bm);
+    if(exited){
+      bookmarkData.remove(bm);
+    }
+    else{
+      bookmarkData.add(bm);
+    }
   }
 
   void onSelectDuongDinhNgheModel(int index){
@@ -72,6 +94,22 @@ class _DuongDinhNghePageState extends State<DuongDinhNghePage>{
               fontWeight: FontWeight.w600,
             ),
           ),
+          actions: [
+            IconButton(
+              alignment: Alignment.topRight,
+              onPressed: () {
+                _bookmarked(bm);
+              },
+              icon: bookmarked ? 
+                const Icon(
+                  Icons.favorite, color: Colors.red,
+                )
+                : 
+                const Icon(
+                  Icons.favorite_border, color: Colors.black,
+                ),
+            ),
+          ],
         ),
         body: 
           Padding(
@@ -175,6 +213,7 @@ class _DuongDinhNghePageState extends State<DuongDinhNghePage>{
                         title: Text(item, style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           setState(() {
+                            _controller.clear();
                             _controller.closeView(item);
                           });
                           if(index == 1){

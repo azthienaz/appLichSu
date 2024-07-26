@@ -188,6 +188,7 @@ class _BacThuoc1PageState extends State<BacThuoc1Page>{
                         title: Text(item, style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           setState(() {
+                            _controller.clear();
                             _controller.closeView(item);
                           });
                           if(index == 1){

@@ -7,6 +7,8 @@ import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
+import 'package:applichsu/data/bookmark_data.dart';
+import 'package:applichsu/model/bookmark_model.dart';
 
 class TrungNuVuongPage extends StatefulWidget {
   const TrungNuVuongPage({super.key});
@@ -16,8 +18,14 @@ class TrungNuVuongPage extends StatefulWidget {
 class _TrungNuVuongPageState extends State<TrungNuVuongPage>{
   int _screenIndex = 0;
   bool shorten = true;
+  static var bookmarked = false;
   late SearchController _controller;
   late TextEditingController textController;
+  var bm = const BookmarkModel(
+    index: 20,
+    image: AssetImage('assets/images/event1.png'),
+    title: "Trưng nữ vương",
+  );
 
   @override
   void initState(){
@@ -38,11 +46,25 @@ class _TrungNuVuongPageState extends State<TrungNuVuongPage>{
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
+      searchData.clear();
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
       );
     });
+  }
+
+  void _bookmarked(BookmarkModel bm){
+    setState(() {
+      bookmarked = !bookmarked;
+    });
+    final exited = bookmarkData.contains(bm);
+    if(exited){
+      bookmarkData.remove(bm);
+    }
+    else{
+      bookmarkData.add(bm);
+    }
   }
 
   void onSelectTrungNuVuongModel(int index){
@@ -70,6 +92,22 @@ class _TrungNuVuongPageState extends State<TrungNuVuongPage>{
               fontWeight: FontWeight.w600,
             ),
           ),
+          actions: [
+            IconButton(
+              alignment: Alignment.topRight,
+              onPressed: () {
+                _bookmarked(bm);
+              },
+              icon: bookmarked ? 
+                const Icon(
+                  Icons.favorite, color: Colors.red,
+                )
+                : 
+                const Icon(
+                  Icons.favorite_border, color: Colors.black,
+                ),
+            ),
+          ],
         ),
         body: 
           Padding(
@@ -173,6 +211,7 @@ class _TrungNuVuongPageState extends State<TrungNuVuongPage>{
                         title: Text(item, style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           setState(() {
+                            _controller.clear();
                             _controller.closeView(item);
                           });
                           if(index == 1){

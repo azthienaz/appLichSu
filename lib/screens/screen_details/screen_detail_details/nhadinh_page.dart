@@ -188,6 +188,7 @@ class _NhaDinhPageState extends State<NhaDinhPage>{
                         title: Text(item, style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           setState(() {
+                            _controller.clear();
                             _controller.closeView(item);
                           });
                           if(index == 1){
