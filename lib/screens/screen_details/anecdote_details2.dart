@@ -5,16 +5,16 @@ import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/bookmark_data.dart';
 
-class ConstantAnecdotePage extends StatefulWidget {
-  const ConstantAnecdotePage({super.key});
+class AnecdoteDetails2Page extends StatefulWidget {
+  const AnecdoteDetails2Page({super.key});
   @override
-  _ConstantAnecdotePageState createState() => _ConstantAnecdotePageState();
+  _AnecdoteDetails2PageState createState() => _AnecdoteDetails2PageState();
 }
-class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
+class _AnecdoteDetails2PageState extends State<AnecdoteDetails2Page>{
   int _screenIndex = 2;
   var bm = const BookmarkModel(
     image: AssetImage('assets/images/anecdote2.png'),
-    title: "Đinh Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ",
+    title: "Định Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ",
   );
   static var bookmarked = false;
   void _onItemTapped(int index) {
@@ -85,7 +85,7 @@ class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
               const Image(image: AssetImage('assets/images/anecdote2.png')),
               const SizedBox(height: 8,),
               const Text(
-                "Đinh Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ",
+                "Định Bộ Lĩnh, cậu bé chăn trâu lấy hoa lau làm cờ",
                 textAlign: TextAlign.left,
                 maxLines: 2,
                 softWrap: true,
@@ -138,15 +138,17 @@ class _ConstantAnecdotePageState extends State<ConstantAnecdotePage>{
               ),
               const SizedBox(height: 5),
               const Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Text(
-                    'Ngoài ra còn nhiều hiện vật khác như: Ấn đồng Môn hạ Sảnh ấn, thời Tần, niên hiệu Long Khánh thứ 5(1377); bình vẽ thiên nga bằng gốm hoa lam, thời Lê Sơ, thế kỷ 15; bia điện Nam Giao bằng đá, thời Lê Trung hưng, năm Vĩnh Trị 4 (1679), trống Cảnh Thịnh bằng đồng, thời Tây Sơn, niên hiệu Cảnh Thịnh năm 1800, ấn Sắc mệnh chi bảo bằng vàng, thời Nguyễn, năm Minh Mệnh thứ 8 (1827); tập thơ Nhật ký trong tù của Hồ Chí Minh; sách Đường Kách mệnh của Nguyễn Ái Quốc; bản thảo Lời kêu gọi toàn quốc kháng chiến của chủ tịch Hồ Chí Minh',
-                    softWrap: true,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      'Trong thời hiện đại, biểu tượng Đinh Tiên Hoàng cũng có những nấc thăng trầm khác nhau. Nếu như đầu thế kỷ 20, biểu tượng Hoàng đế khai mở nền chính thống không còn hữu dụng khi Việt Nam bị Pháp đô hộ, thì đến từ nửa sau thế kỷ này, ông lại trở thành biểu tượng đại diện cho khả năng tạo nên khối đại đoàn kết dân tộc trong công cuộc giữ gìn nền độc lập dân tộc. Đinh Bộ Lĩnh sinh ngày 15 tháng 2 năm Giáp Thân (924), tại làng Đại Hoàng. Nay còn dấu vết nền nhà cũ nơi ông sinh là Gò Bồ Đề (còn dấu tích tại trạm xá cũ, thôn Văn Hà, xã Gia Phương), cha là Đinh Công Trứ, mẹ là bà Đàm Thị. Lúc còn nhỏ Đinh Bộ Lĩnh chăn trâu cho chú là Đinh Dự. Đinh Bộ Lĩnh được bọn trẻ chăn trâu cùng lứa tôn làm đầu mục (trẻ đứng đầu). Lĩnh thường bầy cho bọn trẻ bẻ hoa lau làm cờ, chia quân đánh trận giả. Trận giả nhưng diễn ra như thật (nhờ lão bộc trước đây dạy cho), thể hiện chí khí, sự tài giỏi của Đinh Bộ Lĩnh. Sau mỗi trận tập, bọn trẻ khoanh tay làm kiệu rước Đinh Bộ Lĩnh như nghi vệ Thiên Tử. Trong lũ trẻ có mấy người cùng quê, cùng lứa tuổi, kết nghĩa anh em. Đó là: Đinh Bộ Lĩnh, Đinh Điền, Nguyễn Bặc, Lưu Cơ, Trịnh Tú, tôn Bộ Lĩnh làm anh cả. Sau khi Ngô Vương Quyền mất, triều Ngô lục đục, bất lực. Một số quan, tướng nổi dậy cát cứ xưng hùng xưng bá, đất nước loạn lạc. Sử cũ gọi loạn 12 sứ quân. Lúc đó, lực lượng của Đinh Bộ Lĩnh tương đối mạnh. Do khí phách và tài thao lược, nhân dân trong vùng theo về rất đông. Đinh Bộ Lĩnh nuôi ý chí dẹp loạn, thu giang sơn về một mối, thiết lập triều đình. Đinh Tiên Hoàng là vị anh hùng dân tộc, mở đầu và đặt nền thống nhất quốc gia, bước đầu xây dựng Nhà nước phong kiến Trung ương tập quyền. Bức Đại Tự “Chính thống thủy” trong đền vua Đinh ở Trường Yên khẳng định, minh chứng cho chân lý đó. “Bậc Đế vương chính thống của nước Việt ta khởi đầu từ đây. Các bậc vua Thánh Đế thần kế tiếp nhau chấn tác sau này cũng đều to rộng theo bài học của triều Đinh ”. Đó là “Ý trời sinh ra cho nước Việt ta bậc Thánh nhân sáng suốt để nối tiếp quốc thống”.',
+                      softWrap: true,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),

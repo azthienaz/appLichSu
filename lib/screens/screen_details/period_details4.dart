@@ -1,22 +1,26 @@
+import 'package:applichsu/screens/screen_details/screen_detail_details/nhadinh_page.dart';
+import 'package:applichsu/screens/screen_details/screen_detail_details/nhaly_page.dart';
+import 'package:applichsu/screens/screen_details/screen_detail_details/nhango_page.dart';
+import 'package:applichsu/screens/screen_details/screen_detail_details/nhatienle_page.dart';
+import 'package:applichsu/screens/screen_details/screen_detail_details/quanchu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-import 'package:applichsu/constant_screen/museum_page.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
-import 'package:applichsu/constant_screen/period_details_page.dart';
-import 'package:applichsu/data/period_details2_data.dart';
-import 'package:applichsu/widgets/period_details2.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
+import 'package:applichsu/data/period_details4_data.dart';
+import 'package:applichsu/widgets/period_details4.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
-class PeriodDetails2Page extends StatefulWidget {
-  const PeriodDetails2Page({super.key});
+class PeriodDetails4Page extends StatefulWidget {
+  const PeriodDetails4Page({super.key});
   @override
-  _PeriodDetails2PageState createState() => _PeriodDetails2PageState();
+  _PeriodDetails4PageState createState() => _PeriodDetails4PageState();
 }
-class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
+class _PeriodDetails4PageState extends State<PeriodDetails4Page>{
   int _screenIndex = 0;
   bool shorten = true;
   late SearchController _controller;
@@ -46,11 +50,31 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
     });
   }
 
-  void onSelectPeriodDetails2Model(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ConstantPeriodDetailsPage()),
-    );
+  void onSelectPeriodDetails4Model(int index){
+    if(index == 11){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NhaNgoPage()),
+      );
+    }
+    else if(index == 12){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NhaDinhPage()),
+      );
+    }
+    else if(index == 13){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NhaTienLePage()),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NhaLyPage()),
+      );
+    }
   }
 
   @override
@@ -184,19 +208,19 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                           if(index == 1){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                              MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                             );
                           }
                           else if(index == 2){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                              MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                             );
                           }
                           else{
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                              MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                             );
                           }
                         },
@@ -216,14 +240,14 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                        MaterialPageRoute(builder: (context) => const QuanChuPage()),
                       );
                     },
                     child: Stack(
                       children: [
                         FadeInImage(
                           placeholder: MemoryImage(kTransparentImage),
-                          image: const AssetImage('assets/images/event1.png'),
+                          image: const AssetImage('assets/images/period4.png'),
                           fit: BoxFit.cover,
                           height: 140,
                           width: double.infinity,
@@ -240,7 +264,7 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                                 Container(
                                   alignment: Alignment.topLeft,
                                   child: const Text(
-                                    "111 TCN - 905 TCN",
+                                    "939 - 1945",
                                     maxLines: 2,
                                     textAlign: TextAlign.left,
                                     softWrap: true,
@@ -257,7 +281,7 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                                 Container(
                                   alignment: Alignment.topLeft,
                                   child: const Text(
-                                    "Thời kỳ Bắc thuộc",
+                                    "Thời kỳ Quân chủ",
                                     maxLines: 2,
                                     textAlign: TextAlign.left,
                                     softWrap: true,
@@ -279,13 +303,16 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                 ),
                 const SizedBox(height: 8,),
                 Container(
-                  decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10),),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(7),
                     child: Column(
                       children: [
                         Text(
-                          'Thời kỳ Hồng Bàng theo truyền thuyết và dã sứ cho rằng bắt đầu từ năm 2879 TCN, là niên đại của Kinh Dương Vương, với quốc hiệu Xích Quỷ. Lãnh thổ của quốc gia dưới thời Kinh Dương Vương rộng lớn, phía bắc tới sông Dương Tử (cả vùng ô Động Đình), phía nam tới nước Hồ Tôn (Chiêm Thành), phía Đông là Đông Hải (một phần của Thái Bình Dương), phía Tây là Ba Thục (Tứ Xuyên, Trung Hoa ngày nay).',
+                          'Thời kỳ quân chủ trong lịch sử Việt Nam kéo dài từ năm 939 đến năm 1945. Thời kỳ này bắt đầu từ năm 939, khi Ngô Quyền xưng vương sau trận chiến lịch sử trên sông Bạch Đằng trước quân Nam Hán và chấm dứt vào tháng 8 năm 1945 là thời điểm diễn ra cuộc Cách mạng tháng Tám, còn gọi là Tổng khởi nghĩa tháng Tám - phong trào Việt Minh tiến hành khởi nghĩa chống Đế quốc Nhật Bản, buộc Đế quốc Việt Nam bàn giao chính quyền trung ương và các địa phương và buộc Bảo Đại phải thoái vị trong tháng 8 năm 1945 do chủ tịch Hồ Chí Minh và Đảng lãnh đạo.',
                           style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.w700),
                           softWrap: shorten,
                           overflow: shorten == false ? TextOverflow.ellipsis : null,
@@ -322,10 +349,10 @@ class _PeriodDetails2PageState extends State<PeriodDetails2Page>{
                       mainAxisSpacing: 30,
                     ),
                     children: [
-                      for(final periodDetailsModel in periodDetails2Data)
-                        PeriodDetails2Widget(
+                      for(final periodDetailsModel in periodDetails4Data)
+                        PeriodDetails4Widget(
                           periodDetailsModel: periodDetailsModel,
-                          onSelectPeriodDetails2Model: onSelectPeriodDetails2Model,
+                          onSelectPeriodDetails4Model: onSelectPeriodDetails4Model,
                         ),
                     ],
                   ),

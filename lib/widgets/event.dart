@@ -10,7 +10,7 @@ class EventWidget extends StatelessWidget {
   });
 
   final EventModel eventModel;
-  final void Function() onSelectEventModel;
+  final void Function(int index) onSelectEventModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class EventWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectEventModel,
+          onTap: () {
+            onSelectEventModel(eventModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

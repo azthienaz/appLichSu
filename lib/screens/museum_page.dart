@@ -1,10 +1,15 @@
+import 'package:applichsu/screens/screen_details/museum_details1.dart';
+import 'package:applichsu/screens/screen_details/museum_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details3.dart';
+import 'package:applichsu/screens/screen_details/museum_details4.dart';
+import 'package:applichsu/screens/screen_details/museum_details5.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
 import '../widgets/museum.dart';
 import 'package:applichsu/data/museum_data.dart';
-import 'package:applichsu/constant_screen/museum_page.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
@@ -32,11 +37,43 @@ class _MuseumPageState extends State<MuseumPage>{
     super.dispose();
     
   }
-  void onSelectMuseumModel(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
-    );
+  void onSelectMuseumModel(int index){
+    if(index == 1){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails1Page()),
+      );
+    }
+    else if(index == 2){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails2Page()),
+      );
+    }
+    else if(index == 3){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails3Page()),
+      );
+    }
+    else if(index == 4){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails4Page()),
+      );
+    }
+    else if(index == 5){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails5Page()),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
+      );
+    }
   }
 
   @override
@@ -162,19 +199,19 @@ class _MuseumPageState extends State<MuseumPage>{
                                 if(index == 1){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                                    MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                                   );
                                 }
                                 else if(index == 2){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                                    MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                                   );
                                 }
                                 else{
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                                    MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                                   );
                                 }
                               },

@@ -1,22 +1,23 @@
+import 'package:applichsu/screens/screen_details/screen_detail_details/screen_detail_detail_details/thoiduong_page.dart';
+import 'package:applichsu/screens/screen_details/screen_detail_details/screen_detail_detail_details/thoituy_page.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-import 'package:applichsu/constant_screen/museum_page.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
-import 'package:applichsu/constant_screen/period_details_page.dart';
-import 'package:applichsu/data/period_details1_data.dart';
-import 'package:applichsu/widgets/period_details1.dart';
+import 'package:applichsu/data/bacthuoc3_data.dart';
+import 'package:applichsu/widgets/bacthuoc3.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
-class PeriodDetails1Page extends StatefulWidget {
-  const PeriodDetails1Page({super.key});
+
+class BacThuoc3Page extends StatefulWidget {
+  const BacThuoc3Page({super.key});
   @override
-  _PeriodDetails1PageState createState() => _PeriodDetails1PageState();
+  _BacThuoc3PageState createState() => _BacThuoc3PageState();
 }
-class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
+class _BacThuoc3PageState extends State<BacThuoc3Page>{
   int _screenIndex = 0;
   bool shorten = true;
   late SearchController _controller;
@@ -36,6 +37,8 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
     super.dispose();
     
   }
+
+
   void _onItemTapped(int index) {
     setState(() {
       ScreenIndex.screenIndex = index;
@@ -46,13 +49,21 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
     });
   }
 
-  void onSelectPeriodDetails1Model(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ConstantPeriodDetailsPage()),
-    );
+  void onSelectBacThuoc3Model(int index){
+    if(index == 27){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ThoiTuyPage()),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ThoiDuongPage()),
+      );
+    }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,21 +76,19 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: const Center(
-            child: Text(
-              'Thời kỳ lịch sử',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 21,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-              ),
+          title: const Text(
+            'Bắc thuộc 3',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
         body: 
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 SearchAnchor(
@@ -184,19 +193,19 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
                           if(index == 1){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                              MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                             );
                           }
                           else if(index == 2){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                              MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                             );
                           }
                           else{
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                              MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                             );
                           }
                         },
@@ -204,137 +213,67 @@ class _PeriodDetails1PageState extends State<PeriodDetails1Page>{
                     });
                   }
                 ),
+                const SizedBox(height: 12),
+                const Image(image: AssetImage('assets/images/period_details2_5.png')),
+                const SizedBox(height: 9,),
+                const Text(
+                  "602 - 905",
+                  textAlign: TextAlign.left,
+                  maxLines: 2,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 8,),
+                const Divider(
+                  color: Colors.grey,
+                  thickness: 2,
+                  height: 16,
+                  indent: 5,
+                  endIndent: 5,
+                ),
                 const SizedBox(height: 8),
-                Card(
-                  margin: const EdgeInsets.all(12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  clipBehavior: Clip.hardEdge,
-                  elevation: 2,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ConstantEventPage()),
-                      );
-                    },
-                    child: Stack(
-                      children: [
-                        FadeInImage(
-                          placeholder: MemoryImage(kTransparentImage),
-                          image: const AssetImage('assets/images/period1.png'),
-                          fit: BoxFit.cover,
-                          height: 140,
-                          width: double.infinity,
+                const Expanded(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        'Bắc thuộc lần thứ ba (ngắn gọn: Bắc thuộc lần 3) trong lịch sử Việt Nam kéo dài từ năm 602 đến năm 905 hoặc năm 939. Thời kỳ này bắt đầu khi Tùy Văn Đế sai Lưu Phương đánh chiếm nước Vạn Xuân, bức hàng Hậu Lý Nam Đế, kéo dài cho đến khi Khúc Thừa Dụ tiến vào Đại La, giành quyền cai quản toàn bộ Tĩnh Hải quân năm 905 - thời Đường Ai Đế, ông vua bù nhìn trong tay quyền thần Chu Ôn.',
+                        softWrap: true,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
                         ),
-                        Positioned(
-                          top: 10,
-                          left: 10,
-                          right: 10,
-                          child: Container(
-                            padding:
-                                const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
-                            child: Column(
-                              children: [
-                                Container(
-                                  alignment: Alignment.topLeft,
-                                  child: const Text(
-                                    "2879 TCN - 111 TCN",
-                                    maxLines: 2,
-                                    textAlign: TextAlign.left,
-                                    softWrap: true,
-                                    overflow: TextOverflow.ellipsis, // Very long text ...
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
-                                      backgroundColor: Colors.red,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                Container(
-                                  alignment: Alignment.topLeft,
-                                  child: const Text(
-                                    "Thời kỳ cổ đại",
-                                    maxLines: 2,
-                                    textAlign: TextAlign.left,
-                                    softWrap: true,
-                                    overflow: TextOverflow.ellipsis, // Very long text ...
-                                    style: TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 90, 89, 86),
-
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )     
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 8,),
-                Container(
-                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10),),
-                  child: Padding(
-                    padding: const EdgeInsets.all(7),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Thời kỳ Hồng Bàng theo truyền thuyết và dã sứ cho rằng bắt đầu từ năm 2879 TCN, là niên đại của Kinh Dương Vương, với quốc hiệu Xích Quỷ. Lãnh thổ của quốc gia dưới thời Kinh Dương Vương rộng lớn, phía bắc tới sông Dương Tử (cả vùng ô Động Đình), phía nam tới nước Hồ Tôn (Chiêm Thành), phía Đông là Đông Hải (một phần của Thái Bình Dương), phía Tây là Ba Thục (Tứ Xuyên, Trung Hoa ngày nay).',
-                          style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.w700),
-                          softWrap: shorten,
-                          overflow: shorten == false ? TextOverflow.ellipsis : null,
-                        ),
-                        const SizedBox(height: 3),
-                        TextButton(
-                          child: const Text(
-                            'Thu nhỏ',
-                            style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromARGB(255, 221, 156, 58),
-                            ),
-                          ),
-                          onPressed: (){
-                            setState(() {
-                              shorten = !shorten;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8,),
+                const SizedBox(height: 8),
                 Expanded(
-                  child: GridView(
-                    padding: const EdgeInsets.all(20),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.85,
-                      crossAxisSpacing: 30,
-                      mainAxisSpacing: 30,
+                    child: GridView(
+                      padding: const EdgeInsets.all(20),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.85,
+                        crossAxisSpacing: 30,
+                        mainAxisSpacing: 30,
+                      ),
+                      children: [
+                        for(final bacthuoc3Model in bacthuoc3Data)
+                          BacThuoc3Widget(
+                            bacthuoc3Model: bacthuoc3Model,
+                            onSelectBacThuoc3Model: onSelectBacThuoc3Model,
+                          ),
+                      ],
                     ),
-                    children: [
-                      for(final periodDetailsModel in periodDetails1Data)
-                        PeriodDetails1Widget(
-                          periodDetailsModel: periodDetailsModel,
-                          onSelectPeriodDetails1Model: onSelectPeriodDetails1Model,
-                        ),
-                    ],
                   ),
-                ),
-
               ],
             ),
-          ),
+          ), 
             
           bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,

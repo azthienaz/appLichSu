@@ -10,7 +10,7 @@ class AnecdoteWidget extends StatelessWidget {
   });
 
   final AnecdoteModel anecdoteModel;
-  final void Function() onSelectAnecdoteModel;
+  final void Function(int index) onSelectAnecdoteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class AnecdoteWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectAnecdoteModel,
+          onTap: () {
+            onSelectAnecdoteModel(anecdoteModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:applichsu/data/bookmark_data.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
 import 'package:applichsu/widgets/bookmark.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/home_page.dart';
@@ -25,7 +25,7 @@ class _BookmarkPageState extends State<BookmarkPage>{
   void onSelectBookmarkModel(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+      MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
     );
   }
 
@@ -66,7 +66,7 @@ class _BookmarkPageState extends State<BookmarkPage>{
                         padding: const EdgeInsets.all(20),
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 1,
-                          childAspectRatio: 1.5,
+                          childAspectRatio: 1.45,
                           crossAxisSpacing: 30,
                           mainAxisSpacing: 30,
                         ),

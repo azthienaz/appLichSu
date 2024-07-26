@@ -3,12 +3,16 @@ import 'bookmark_page.dart';
 import '../widgets/event.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:applichsu/data/event_data.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-import 'package:applichsu/constant_screen/museum_page.dart';
+
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
+import 'package:applichsu/screens/screen_details/event_details2.dart';
+import 'package:applichsu/screens/screen_details/event_details3.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
+import 'package:applichsu/screens/screen_details/event_hungvuong.dart';
 class EventPage extends StatefulWidget {
   const EventPage({super.key});
   @override
@@ -32,11 +36,25 @@ class _EventPageState extends State<EventPage>{
     super.dispose();
     
   }
-  void onSelectEventModel(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ConstantEventPage()),
-    );
+  void onSelectEventModel(int index){
+    if(index == 1){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const EventDetails1Page()),
+      );
+    }
+    else if(index == 2){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const EventDetails2Page()),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const EventDetails3Page()),
+      );
+    }
   }
 
   @override
@@ -162,19 +180,19 @@ class _EventPageState extends State<EventPage>{
                                 if(index == 1){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                                    MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                                   );
                                 }
                                 else if(index == 2){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                                    MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                                   );
                                 }
                                 else{
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                                    MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                                   );
                                 }
                               },
@@ -219,7 +237,7 @@ class _EventPageState extends State<EventPage>{
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                              MaterialPageRoute(builder: (context) => const EventDetailsHVPage()),
                             );
                           },
                           child: Stack(

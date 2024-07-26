@@ -38,7 +38,7 @@ class BookmarkWidget extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Center(child: Image(image: bookmarkModel.image, width: 180)),
+                Center(child: Image(image: bookmarkModel.image, width: 160)),
                 const SizedBox(height: 5),
                 Expanded(
                   child: Column(

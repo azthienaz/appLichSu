@@ -4,18 +4,18 @@ import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/bookmark_data.dart';
 import 'package:applichsu/model/bookmark_model.dart';
 
-class ConstantMuseumPage extends StatefulWidget {
-  const ConstantMuseumPage({super.key});
+class TrieuVietVuongPage extends StatefulWidget {
+  const TrieuVietVuongPage({super.key});
   @override
-  _ConstantMuseumPageState createState() => _ConstantMuseumPageState();
+  _TrieuVietVuongPageState createState() => _TrieuVietVuongPageState();
 }
-class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
-  int _screenIndex = 3;
+class _TrieuVietVuongPageState extends State<TrieuVietVuongPage>{
+  int _screenIndex = 0;
   static var bookmarked = false;
 
   var bm = const BookmarkModel(
-    image: AssetImage('assets/images/museum6.png'),
-    title: "Ấn vàng Sắc mệnh chi bảo",
+    image: AssetImage('assets/images/trieuvietvuong.png'),
+    title: "Triệu Việt Vương đánh đuổi quân Lương",
   );
 
   void _onItemTapped(int index) {
@@ -54,7 +54,7 @@ class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: const Text(
-            'Bảo tàng lịch sử',
+            'Triệu Việt Vương đánh đuổi quân Lương',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
@@ -82,10 +82,10 @@ class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
         body: 
           const Column(
             children: [
-              Image(image: AssetImage('assets/images/museum6.png')),
+              Image(image: AssetImage('assets/images/trieuvietvuong.png')),
               SizedBox(height: 8,),
               Text(
-                "Ấn vàng Sắc mệnh chi bảo",
+                "546 - 550",
                 textAlign: TextAlign.left,
                 maxLines: 2,
                 softWrap: true,
@@ -105,21 +105,23 @@ class _ConstantMuseumPageState extends State<ConstantMuseumPage>{
               ),
               SizedBox(height: 8),
               Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Text(
-                    'Ngoài ra còn nhiều hiện vật khác như: Ấn đồng Môn hạ Sảnh ấn, thời Tần, niên hiệu Long Khánh thứ 5(1377); bình vẽ thiên nga bằng gốm hoa lam, thời Lê Sơ, thế kỷ 15; bia điện Nam Giao bằng đá, thời Lê Trung hưng, năm Vĩnh Trị 4 (1679), trống Cảnh Thịnh bằng đồng, thời Tây Sơn, niên hiệu Cảnh Thịnh năm 1800, ấn Sắc mệnh chi bảo bằng vàng, thời Nguyễn, năm Minh Mệnh thứ 8 (1827); tập thơ Nhật ký trong tù của Hồ Chí Minh; sách Đường Kách mệnh của Nguyễn Ái Quốc; bản thảo Lời kêu gọi toàn quốc kháng chiến của chủ tịch Hồ Chí Minh',
-                    softWrap: true,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      'Tháng 3 năm 548, nghe tin Lý Nam Đế mất trong động Khuất Lão, Triệu Quang Phục tự xưng là Triệu Việt Vương. Trần Bá Tiên vây đánh nhiều lần không được. Lý Thiên Bảo thấy động Dã Năng ở đầu nguồn Đào Giang, đất phẳng rộng màu mỡ có thể ở được, Lý Thiên Bảo mới đắp thành để ở, nhân tên đất ấy mà đặt quốc hiệu. Đến bây giờ quân chúng tôn làm chúa, xưng là Đào Lang vương. Tháng 1 năm 550, nhà Lương cho Trần Bá Tiên làm Uy minh tướng quân Giao Châu thứ sử. Bá Tiên lại mưu tính cầm cự lâu ngày khiến cho Triệu Việt Vương lương hết quân mỏi thì có thể phá được. Gặp lúc bên nước Lương xảy ra loạn Hầu Cảnh, nhà Lương gọi Bá Tiên về, ủy quyền cho tì tướng là Dương Sàn cầm quân. Triệu Việt Vương nhân lúc quân Lương không còn tướng giỏi, tung quân ra đánh. Sàn mang quân chống cự, bị thua chết. Quân Lương tan vỡ chạy về Bắc. Triệu Việt Vương lấy lại được nước Vạn Xuân, đóng đô ở thành Long Biên.',
+                      softWrap: true,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
-          ),
+          ), 
             
           bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,

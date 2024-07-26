@@ -10,7 +10,7 @@ class MuseumWidget extends StatelessWidget {
   });
 
   final MuseumModel museumModel;
-  final void Function() onSelectMuseumModel;
+  final void Function(int index) onSelectMuseumModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class MuseumWidget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectMuseumModel,
+          onTap: () {
+            onSelectMuseumModel(museumModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

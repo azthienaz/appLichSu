@@ -53,7 +53,9 @@ Download the Android version of this app through the following link:
 | 20/07/2024   | Fix Navigate Page, Update 4 Period Details Page + Constants Period Details Page + Contact Page | Update more basic UI |
 | 21/07/2024   | Update Bookmark UI, Search Suggestions | Update more basic UI and Search Suggestions |
 | 22/07/2024   | Update Search Page, Fix SearchBar UI   | Update more basic UI                |
-
+| 23/07/2024   | Switch Code to GitLab, learn about trello   |  Learning             |
+| 24/07 - 25/07/2024  | Update New Pages for Museum - Anecdote - Event Widgets, HV Pages, Period Details 1-2 Pages  |  Update more basic UI             |
+| 26/07/2024   | Complete basic UI                      | Complete basic UI                   |
 ##### Future Work
 - [ ] Update app structure, optimize and clean code.
 - [ ] Using SQL database for this app

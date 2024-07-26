@@ -3,18 +3,21 @@ import 'package:applichsu/model/period_details_model.dart';
 
 const periodDetails3Data = {
   PeriodDetailsModel(
-    image: AssetImage('assets/images/constant_period_details_1.png'),
-    title: "Vài nét sơ lược về Dương Đình Nghệ",
-    time: "544 - 548"
+    index: 8,
+    image: AssetImage('assets/images/badoihokhuc.png'),
+    title: "Ba đời họ Khúc",
+    time: "905 - 930"
   ),
   PeriodDetailsModel(
-    image: AssetImage('assets/images/constant_period_details_2.png'),
-    title: "Vài nét sơ lược về Khúc Thừa Dụ",
-    time: "544 - 548"
+    index: 9,
+    image: AssetImage('assets/images/duongdinhnghe.png'),
+    title: "Dương Đình Nghệ đánh đuổi Nam Hán",
+    time: "931 - 934"
   ),
   PeriodDetailsModel(
-    image: AssetImage('assets/images/constant_period_details_2.png'),
-    title: "Vài nét sơ lược về Khúc Thừa Dụ",
-    time: "544 - 549"
+    index: 10,
+    image: AssetImage('assets/images/kieucongtien.png'),
+    title: "Kiều Công Tiễn phản chủ bị giết",
+    time: "937 - 938"
   ),
 };

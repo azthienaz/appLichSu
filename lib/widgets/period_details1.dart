@@ -10,7 +10,7 @@ class PeriodDetails1Widget extends StatelessWidget {
   });
 
   final PeriodDetailsModel periodDetailsModel;
-  final void Function() onSelectPeriodDetails1Model;
+  final void Function(int index) onSelectPeriodDetails1Model;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class PeriodDetails1Widget extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: InkWell(
-          onTap: onSelectPeriodDetails1Model,
+          onTap: (){
+            onSelectPeriodDetails1Model(periodDetailsModel.index);
+          },
           splashColor: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(4),
           child: Container(

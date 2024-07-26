@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:applichsu/data/search_data.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/widgets/search.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/home_page.dart';
@@ -26,7 +26,7 @@ class _SearchPageState extends State<SearchPage>{
   void onSelectSearchModel(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+      MaterialPageRoute(builder: (context) => const EventDetails1Page()),
     );
   }
 

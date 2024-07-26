@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_page.dart';
 import 'package:applichsu/constants/screen_index.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-import 'package:applichsu/constant_screen/museum_page.dart';
-import 'package:applichsu/constant_screen/event_page.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/data/period_details3_data.dart';
 import 'package:applichsu/widgets/period_details3.dart';
 import 'package:applichsu/data/search_data.dart';
@@ -47,7 +47,7 @@ class _ConstantPeriodDetailsPageState extends State<ConstantPeriodDetailsPage>{
   void onSelectPeriodDetails3Model(){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+      MaterialPageRoute(builder: (context) => const EventDetails1Page()),
     );
   }
 
@@ -182,19 +182,19 @@ class _ConstantPeriodDetailsPageState extends State<ConstantPeriodDetailsPage>{
                           if(index == 1){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                              MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                             );
                           }
                           else if(index == 2){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                              MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                             );
                           }
                           else{
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                              MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                             );
                           }
                         },
