@@ -124,7 +124,7 @@ class _EventDetails1PageState extends State<EventDetails1Page>{
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ConstantVideoPage()),
+                        MaterialPageRoute(builder: (context) => const VideoPage('assets/videos/event1.mp4')),
                       );
                     }, 
                   ),

@@ -125,7 +125,7 @@ class _AnecdoteDetails2PageState extends State<AnecdoteDetails2Page>{
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ConstantVideoPage()),
+                        MaterialPageRoute(builder: (context) => const VideoPage('assets/videos/anecdote2.mp4')),
                       );
                     }, 
                   ),

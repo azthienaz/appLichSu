@@ -124,7 +124,7 @@ class _EventDetailsHVPageState extends State<EventDetailsHVPage>{
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ConstantVideoPage()),
+                        MaterialPageRoute(builder: (context) => const VideoPage('assets/videos/gioto.mp4')),
                       );
                     }, 
                   ),
