@@ -1,7 +1,8 @@
 # applichsu
-This is an app about Vietnamese history, made by a team of 2 people:
-- Quang : https://github.com/thequang-ntq
-- Thiên : https://github.com/azthienaz/applichsu
+This is an app about Vietnamese history, made by a team of 3 people:
+- Nguyễn: https://gitlab.com/mucdong
+- Quang : https://gitlab.com/thequang-ntq
+- Thiên : https://gitlab.com/thienlp2609
 
 ## Table of Contents
 
@@ -58,7 +59,8 @@ Download the Android version of this app through the following link:
 | 26/07/2024   | Update Period Details 3-4 Pages, Fix Bookmark Page, Search Page | Complete basic UI  |
 | 27/07/2024   | Update Contact Page                    | Complete basic UI              |
 | 28/07/2024   | Update Video Page                      | Complete basic UI              |
-
+| 29/07/2024   | Update outer part UI                   | Thiên: Update outer part UI    |
+| 30/07/2024   | Optimize code, Update inner part UI    | Quang: Update inner part UI    |
 ##### Future Work
 - [ ] Update app structure, optimize and clean code.
 - [ ] Using SQL database for this app
