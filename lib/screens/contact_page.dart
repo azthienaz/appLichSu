@@ -1,6 +1,5 @@
+import 'package:applichsu/screens/screen_details/contact_details.dart';
 import 'package:flutter/material.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
-
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
   _ContactPageState createState() => _ContactPageState();
@@ -9,7 +8,7 @@ class _ContactPageState extends State<ContactPage>{
   void _onItemTapped(int index) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+      MaterialPageRoute(builder: (context) => const ContactDetailsPage()),
     );
   }
 
@@ -160,7 +159,7 @@ class _ContactPageState extends State<ContactPage>{
                     onPressed: () {
                       Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                      MaterialPageRoute(builder: (context) => const ContactDetailsPage()),
                         );
                     },
                     icon: const Icon(Icons.email, color: Color.fromARGB(255, 204, 123, 2),),

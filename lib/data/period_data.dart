@@ -22,7 +22,7 @@ const periodData = {
   ),
   PeriodModel(
     index: 4,
-    image: AssetImage('assets/images/period2.png'),
+    image: AssetImage('assets/images/period4.png'),
     period: "Thời kỳ Quân chủ",
     time: "938 - 1945"
   ),

@@ -1,10 +1,12 @@
-import 'package:applichsu/constant_screen/event_page.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details1.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details3.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
 import '../widgets/anecdote.dart';
-import '../constant_screen/museum_page.dart';
 import 'package:applichsu/data/anecdote_data.dart';
-import 'package:applichsu/constant_screen/anecdote_page.dart';
+import 'package:applichsu/screens/screen_details/anecdote_details2.dart';
+import 'package:applichsu/screens/screen_details/museum_details6.dart';
+import 'package:applichsu/screens/screen_details/event_details1.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/search_page.dart';
@@ -33,11 +35,25 @@ class _AnecdotePageState extends State<AnecdotePage>{
     
   }
 
-  void onSelectAnecdoteModel(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
-    );
+  void onSelectAnecdoteModel(int index){
+    if(index == 1){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AnecdoteDetails1Page()),
+      );
+    }
+    else if(index == 2){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AnecdoteDetails3Page()),
+      );
+    }
   }
 
   @override
@@ -158,24 +174,25 @@ class _AnecdotePageState extends State<AnecdotePage>{
                               title: Text(item, style: const TextStyle(color: Colors.white)),
                               onTap: () {
                                 setState(() {
+                                  _controller.clear();
                                   _controller.closeView(item);
                                 });
                                 if(index == 1){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantEventPage()),
+                                    MaterialPageRoute(builder: (context) => const EventDetails1Page()),
                                   );
                                 }
                                 else if(index == 2){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantAnecdotePage()),
+                                    MaterialPageRoute(builder: (context) => const AnecdoteDetails2Page()),
                                   );
                                 }
                                 else{
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const ConstantMuseumPage()),
+                                    MaterialPageRoute(builder: (context) => const MuseumDetails6Page()),
                                   );
                                 }
                               },
