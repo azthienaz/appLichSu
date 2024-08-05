@@ -2,7 +2,7 @@ import 'package:applichsu/data/tienly_data.dart';
 import 'package:applichsu/screens/detail_screens/detail_detail_screens/detail_detail_detail_screens/lynamde_page.dart';
 import 'package:applichsu/screens/detail_screens/detail_detail_screens/detail_detail_detail_screens/lyphattu_page.dart';
 import 'package:applichsu/screens/detail_screens/detail_detail_screens/detail_detail_detail_screens/trieuvietvuong_page.dart';
-import 'package:applichsu/widgets/tienly_widget.dart';
+import 'package:applichsu/widgets/detail_widgets/detail_detail_widgets/detail_detail_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/home_bottombar.dart';
 import 'package:applichsu/constants/screen_index.dart';
@@ -272,9 +272,9 @@ class _TienLyPageState extends State<TienLyPage>{
                       ),
                       children: [
                         for(final tienlyModel in tienlyData)
-                          TienLyWidget(
-                            tienlyModel: tienlyModel,
-                            onSelectTienLyModel: onSelectTienLyModel,
+                          DetailDetailWidget(
+                            detailDetailModel: tienlyModel,
+                            onSelectDetailDetailModel: onSelectTienLyModel,
                           ),
                       ],
                     ),

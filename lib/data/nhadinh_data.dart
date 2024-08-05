@@ -5,7 +5,7 @@ const nhadinhData = {
   PeriodDetailsModel(
     index: 37,
     image: AssetImage('assets/images/dinhbolinh.png'),
-    title: "1. Đinh Bộ Lĩnh dẹp loạn 12 sứ quân, lên ngôi vương",
+    title: "1. Đinh Bộ Lĩnh",
     time: "965 - 979"
   ),
   PeriodDetailsModel(

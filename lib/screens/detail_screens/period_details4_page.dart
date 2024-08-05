@@ -11,7 +11,7 @@ import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details6_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details1_page.dart';
 import 'package:applichsu/data/period_details4_data.dart';
-import 'package:applichsu/widgets/period_details4_widget.dart';
+import 'package:applichsu/widgets/detail_widgets/period_details_widget.dart';
 import 'package:applichsu/data/search_data.dart';
 import 'package:applichsu/data/search_datas.dart';
 import 'package:applichsu/screens/main_screens/search_page.dart';
@@ -351,9 +351,10 @@ class _PeriodDetails4PageState extends State<PeriodDetails4Page>{
                     ),
                     children: [
                       for(final periodDetailsModel in periodDetails4Data)
-                        PeriodDetails4Widget(
+                        PeriodDetailsWidget(
                           periodDetailsModel: periodDetailsModel,
-                          onSelectPeriodDetails4Model: onSelectPeriodDetails4Model,
+                          onSelectPeriodDetailsModel: onSelectPeriodDetails4Model,
+                          
                         ),
                     ],
                   ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
-import '../../widgets/event_widget.dart';
-import 'package:transparent_image/transparent_image.dart';
+import '../../widgets/main_widgets/event_widget.dart';
 import 'package:applichsu/data/event_data.dart';
 
 import 'package:applichsu/data/search_data.dart';
@@ -12,7 +11,9 @@ import 'package:applichsu/screens/detail_screens/event_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details3_page.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details6_page.dart';
-import 'package:applichsu/screens/detail_screens/today_page.dart';
+import 'package:applichsu/widgets/main_widgets/today_widget.dart';
+import 'package:applichsu/data/today_data.dart';
+
 class EventPage extends StatefulWidget {
   const EventPage({super.key});
   @override
@@ -227,78 +228,7 @@ class _EventPageState extends State<EventPage>{
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Card(
-                        margin: const EdgeInsets.all(8),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        clipBehavior: Clip.hardEdge,
-                        elevation: 2,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const TodayPage()),
-                            );
-                          },
-                          child: Stack(
-                            children: [
-                              FadeInImage(
-                                placeholder: MemoryImage(kTransparentImage),
-                                image: const AssetImage('assets/images/hungvuong.png'),
-                                fit: BoxFit.cover,
-                                height: 140,
-                                width: double.infinity,
-                              ),
-                              Positioned(
-                                top: 10,
-                                left: 10,
-                                right: 10,
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        alignment: Alignment.topLeft,
-                                        child: const Text(
-                                          "Ngày này năm xưa",
-                                          maxLines: 2,
-                                          textAlign: TextAlign.left,
-                                          softWrap: true,
-                                          overflow: TextOverflow.ellipsis, // Very long text ...
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.white,
-                                            backgroundColor: Colors.red,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 12),
-                                      Container(
-                                        alignment: Alignment.topLeft,
-                                        child: const Text(
-                                          "Giỗ Tổ Hùng Vương",
-                                          maxLines: 2,
-                                          textAlign: TextAlign.left,
-                                          softWrap: true,
-                                          overflow: TextOverflow.ellipsis, // Very long text ...
-                                          style: TextStyle(
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )     
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      TodayWidget(todayModel: listToday.elementAt(0),),
                       Expanded(
                       child: GridView(
                         padding: const EdgeInsets.all(20),

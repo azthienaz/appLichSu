@@ -114,7 +114,7 @@ const searchDatas = {
   SearchModel(
     index: 23,
     image: AssetImage('assets/images/dinhbolinh.png'),
-    title: "Đinh Bộ Lĩnh dẹp loạn 12 sứ quân, lên ngôi vương",
+    title: "Đinh Bộ Lĩnh",
   ),
   SearchModel(
     index: 24,

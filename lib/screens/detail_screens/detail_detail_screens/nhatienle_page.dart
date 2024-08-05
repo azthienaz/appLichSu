@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:applichsu/home_bottombar.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/nhatienle_data.dart';
-import 'package:applichsu/widgets/nhatienle_widget.dart';
+import 'package:applichsu/widgets/detail_widgets/detail_detail_widgets/detail_detail_widget.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details6_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details1_page.dart';
@@ -265,9 +265,9 @@ class _NhaTienLePageState extends State<NhaTienLePage>{
                       ),
                       children: [
                         for(final nhatienleModel in nhatienleData)
-                          NhaTienLeWidget(
-                            nhatienleModel: nhatienleModel,
-                            onSelectNhaTienLeModel: onSelectNhaTienLeModel,
+                          DetailDetailWidget(
+                            detailDetailModel: nhatienleModel,
+                            onSelectDetailDetailModel: onSelectNhaTienLeModel,
                           ),
                       ],
                     ),

@@ -2,7 +2,7 @@ import 'package:applichsu/screens/detail_screens/anecdote_details1_page.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details3_page.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
-import '../../widgets/anecdote_widget.dart';
+import '../../widgets/main_widgets/anecdote_widget.dart';
 import 'package:applichsu/data/anecdote_data.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details6_page.dart';

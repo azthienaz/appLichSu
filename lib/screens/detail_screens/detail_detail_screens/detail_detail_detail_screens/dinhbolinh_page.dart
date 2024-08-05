@@ -17,7 +17,7 @@ class _DinhBoLinhPageState extends State<DinhBoLinhPage>{
   var bm = const BookmarkModel(
     index: 23,
     image: AssetImage('assets/images/dinhbolinh.png'),
-    title: "Đinh Bộ Lĩnh dẹp loạn 12 sứ quân, lên ngôi vương",
+    title: "Đinh Bộ Lĩnh",
   );
 
   void _onItemTapped(int index) {
@@ -57,7 +57,7 @@ class _DinhBoLinhPageState extends State<DinhBoLinhPage>{
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: const Text(
-            'Đinh Bộ Lĩnh dẹp loạn 12 sứ quân, lên ngôi vương',
+            'Đinh Bộ Lĩnh',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,

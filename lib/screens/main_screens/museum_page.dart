@@ -5,7 +5,7 @@ import 'package:applichsu/screens/detail_screens/museum_details4_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details5_page.dart';
 import 'package:flutter/material.dart';
 import 'bookmark_page.dart';
-import '../../widgets/museum_widget.dart';
+import '../../widgets/main_widgets/museum_widget.dart';
 import 'package:applichsu/data/museum_data.dart';
 import 'package:applichsu/screens/detail_screens/event_details1_page.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';

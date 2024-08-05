@@ -4,7 +4,7 @@ import 'package:applichsu/screens/detail_screens/anecdote_details3_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details1_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details3_page.dart';
-import 'package:applichsu/screens/detail_screens/today_page.dart';
+import 'package:applichsu/screens/main_screens/today_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details1_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details3_page.dart';
@@ -48,7 +48,7 @@ import 'package:applichsu/screens/detail_screens/detail_detail_screens/trungnuvu
 import 'package:applichsu/screens/detail_screens/detail_detail_screens/tuchu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:applichsu/data/bookmark_data.dart';
-import 'package:applichsu/widgets/bookmark_widget.dart';
+import 'package:applichsu/widgets/main_widgets/bookmark_widget.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/home_bottombar.dart';
 
@@ -445,6 +445,7 @@ class _BookmarkPageState extends State<BookmarkPage>{
                 label: 'Bảo tàng',
               ),
             ],
+            currentIndex: ScreenIndex.screenIndex,
             unselectedItemColor: Colors.grey,
             unselectedLabelStyle: const TextStyle(
               color: Colors.grey, 

@@ -1,5 +1,5 @@
+import 'package:applichsu/screens/main_screens/period_page.dart';
 import 'package:flutter/material.dart';
-import 'screens/main_screens/period_page.dart';
 import 'screens/main_screens/event_page.dart';
 import 'screens/main_screens/anecdote_page.dart';
 import 'screens/main_screens/museum_page.dart';

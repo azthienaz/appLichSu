@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:applichsu/home_bottombar.dart';
 import 'package:applichsu/constants/screen_index.dart';
 import 'package:applichsu/data/bacthuoc2_data.dart';
-import 'package:applichsu/widgets/bacthuoc2_widget.dart';
+import 'package:applichsu/widgets/detail_widgets/detail_detail_widgets/detail_detail_widget.dart';
 import 'package:applichsu/screens/detail_screens/anecdote_details2_page.dart';
 import 'package:applichsu/screens/detail_screens/museum_details6_page.dart';
 import 'package:applichsu/screens/detail_screens/event_details1_page.dart';
@@ -279,9 +279,9 @@ class _BacThuoc2PageState extends State<BacThuoc2Page>{
                       ),
                       children: [
                         for(final bacthuoc2Model in bacthuoc2Data)
-                          BacThuoc2Widget(
-                            bacthuoc2Model: bacthuoc2Model,
-                            onSelectBacThuoc2Model: onSelectBacThuoc2Model,
+                          DetailDetailWidget(
+                            detailDetailModel: bacthuoc2Model,
+                            onSelectDetailDetailModel: onSelectBacThuoc2Model,
                           ),
                       ],
                     ),

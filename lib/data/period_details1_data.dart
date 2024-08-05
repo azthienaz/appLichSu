@@ -14,5 +14,4 @@ const periodDetails1Data = {
     title: "2. Nhà Thục",
     time: "257 TCN - 208 TCN"
   ),
-
 };

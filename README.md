@@ -61,6 +61,7 @@ Download the Android version of this app through the following link:
 | 28/07/2024   | Update Video Page                      | Complete basic UI              |
 | 29/07/2024   | Update outer part UI                   | Thiên: Update outer part UI    |
 | 30/07/2024   | Optimize code, Update inner part UI    | Quang: Update inner part UI    |
+| 31/07 - 06/08/2024   | Optimize code                  | Optimize code                  |
 ##### Future Work
 - [ ] Update app structure, optimize and clean code.
 - [ ] Using SQL database for this app
